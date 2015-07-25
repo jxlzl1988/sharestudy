@@ -1,0 +1,98 @@
+@charset "utf-8";
+/* CSS Document */
+.ml100{margin-left: 100px;}
+/*Nav*/
+.navbar-fixed-top{z-index: 900;}
+.treeview, .treeview ul {padding: 0;margin: 0;list-style: none;}
+.treeview{padding: 0 10px 20px 10px;}
+.treeview ul{background-color: #F5F5F5;margin-top: 4px;}
+.treeview .hitarea {background: url(../images/treeview-default.gif) -64px -25px no-repeat;height: 16px;width: 16px;margin-left: -16px;float: left;cursor: pointer;}
+/* fix for IE6 */
+* html .hitarea {display: inline;float:none;}
+.treeview li {margin: 0;padding: 3px 0pt 3px 16px;}
+.treeview a.selected {background-color: #F5F5F5;}
+#treecontrol { margin: 1em 0; display: none; }
+.treeview .hover { color: red; cursor: pointer; }
+.treeview li { background: url(../images/treeview-default-line.gif) 0 0 no-repeat; }
+.treeview li.collapsable, .treeview li.expandable { background-position: 0 -176px; }
+.treeview .expandable-hitarea { background-position: -80px -3px; }
+.treeview li.last { background-position: 0 -1766px }
+.treeview li.lastCollapsable, .treeview li.lastExpandable { background-image: url(../images/treeview-default.gif); }  
+.treeview li.lastCollapsable { background-position: 0 -111px }
+.treeview li.lastExpandable { background-position: -32px -67px }
+.treeview div.lastCollapsable-hitarea, .treeview div.lastExpandable-hitarea { background-position: 0; }
+.treeview div.firstExpandable-hitarea{background-position: 0 0;}
+/*OtherCon*/
+.dl-horizontal .mt8{margin-top: 8px;}
+.h-controls .ysmall-input,.ysmall-input{width: 100px;}
+.h-controls .ysmallest-input,.ysmallest-input{width: 30px;}
+.control-group{font-size: 14px;overflow: hidden;}
+.btn{font-size: 14px;}
+.ml-10{margin-left: 10px;}
+.h-controls .yverylagre-input{width: 600px;}
+.thumbnails li.span10{margin-left: 0;}
+.pdtop5{padding-top: 5px;float: left;}
+.form-horizontal .fr{float: right;}
+.othertable td a,.comment td a{width: auto; height: auto;text-indent: 0;background-image: none;line-height: normal;}
+.avatar-img{width: 30px;height: 30px;}
+.comment td a.fontcolor,.othertable td a.fontcolor{color: #333;}
+/*订单管理*/
+.table th, .table td{vertical-align: middle;}
+.pop-h3 .pop-close{display: block;}
+.flwidth,.frwidth{width: 290px;}
+.ypop{width: 593px;}
+.frwidth{padding-right: 10px;}
+.border-line{border-top:1px dashed #cacaca; border-bottom: 1px dashed #cacaca; padding: 15px 0;}
+.mb-3{margin-bottom: 3px;}
+.text-center{text-align: center;}
+.bordertable{border: 1px solid #DDDDDD;}
+.sendMessage{display: none;}
+.seek-result{position: relative;}
+.seek-result .d-dl dd{height: auto;}
+.xubox_main h2.xubox_title{margin-top: 0;}
+/*QA*评论*/
+.reply-pop,.addAsk,.addCoupon-pon,.addChit-pon{display: none;width: 350px;border: 1px solid #ccc;overflow: hidden;}
+.reply-pop h2,.addAsk h2,.addCoupon-pon h2,.addChit-pon h2{position: relative;margin-top: 0;padding-left: 20px;font-size: 16px;border-bottom: 1px solid #ccc;}
+.reply-pd{display: block;width: 318px;height: 105px;border: 1px solid #ccc;margin: 25px auto 25px;resize: none;}
+.comment h2 a,.add-ask h2 a{float: none;margin-left: 25px;display: inline-block;padding: 4px 12px;}
+.addComment-pop{width: 600px;height: 500px;border: 1px solid #ccc; overflow-y: auto;}
+.addComment-area{margin: 10px 10px 10px 20px;display: block;width: 530px;height: 105px;border: 1px solid #ccc;}
+.mt20{margin-top: 20px;}
+.mtl{margin: 20px 0 20px 30px;}
+
+/*蚂蚁游App*/
+.gray{color: #999;font-size: 12px;}
+.inform{padding: 5px 30px;font-size: 14px;border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;}
+.inform-pd{border-bottom: 1px solid #ccc;}
+
+
+/*Coupon*/
+.coupon-area{width: 700px;height: 100px;}
+.ml20{margin-left: 20px;}
+.pd30{padding: 30px;}
+
+/*订单管理*/
+.cancel-wrap{padding: 20px;}
+.cancel-pd,.tktype-wrap,.tyh-pd{overflow: hidden;}
+.cancel-pd dd{display: block;overflow: hidden;}
+.cancel-pd dd label,.tyh-pd dd label{float: left;margin-right: 30px;}
+
+/*玩乐攻略*/
+.wlpage{font-size: 14px;text-align: center;}
+
+/*酒店回复*/
+.hr-box{padding: 0 30px;}
+.hr-box .hr-tt{font-weight: bold;}
+#js-editReply .hr-area{width: 500px;height: 150px;resize: none;}
+
+.treeHide{display: none;}
+.treeShow{display: block;}
+#role{margin: 20px 0;}
+.treeParent label{padding-left: 15px;background-image: url(../images/sprite/show_hide_bg.png);background-repeat: no-repeat;}
+.treeParent label.addhide{background-position: 0 7px;color: #ff0000;}
+.treeParent label.minusshow{background-position: 0 -18px;color: #ff0000;}
+.treeUnit .control-group{padding-left: 20px;line-height: 20px;}
+.treeUnit .control-group input{margin: -2px 5px 0 0;}
+.row-fluid .wlcon [class*="span"]:first-child{margin-left: 2.12766%;}
+.row-fluid .wlcon .span3{width: 22.404%;}
+.wlcon .caption .btn{font-size: 12px;padding: 4px 10px;}

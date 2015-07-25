@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration debug="true" xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+	   <param name="Threshold" value="INFO"/>
+	   <param name="Encoding" value="UTF-8"/>	
+	   <layout class="org.apache.log4j.PatternLayout">
+	   		<param name="ConversionPattern" value="%5p %d{yyyy-MM-dd HH:mm:ss} %c %m %n"/>
+	   </layout>
+	</appender>
+
+	<!-- 错误类日志记录 -->
+	<appender name="ErrorLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="ERROR"/>
+		<param name="File" value="src/main/webapp/log/error.log"/>
+		<param name="Encoding" value="UTF-8"/>
+		<param name="BufferedIO" value="true" />
+        <param name="BufferSize" value="8192" />	
+		<layout class="org.apache.log4j.PatternLayout">
+	   		<param name="ConversionPattern" value="%5p %d{yyyy-MM-dd HH:mm:ss} %c %m %n"/>
+	   	</layout>
+	</appender>
+	<!-- 错误类日志异步代理 -->
+	<appender name="ErrorLogAsync" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="STDOUT"/>
+    </appender>
+	
+	<!-- db日志 -->
+	<appender name="DBLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="INFO"/>
+		<param name="File" value="src/main/webapp/log/db.log"/>
+		<param name="Encoding" value="UTF-8"/>
+		<param name="BufferedIO" value="true" />
+        <param name="BufferSize" value="8192" />
+		<layout class="org.apache.log4j.PatternLayout">
+	   		<param name="ConversionPattern" value="%5p %d{yyyy-MM-dd HH:mm:ss} %c %m %n"/>
+	   	</layout>
+	</appender>
+	<!-- db类日志异步代理 -->
+	<appender name="DBLogAsync" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="DBLog"/>
+    </appender>
+	
+	<!-- service日志 -->
+	<appender name="ServiceLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="INFO"/>
+		<param name="File" value="src/main/webapp/log/service.log"/>
+		<param name="Encoding" value="UTF-8"/>
+		<param name="BufferedIO" value="true" />
+        <param name="BufferSize" value="8192" />
+		<layout class="org.apache.log4j.PatternLayout">
+	   		<param name="ConversionPattern" value="%5p %d{yyyy-MM-dd HH:mm:ss} %c %m %n"/>
+	   	</layout>
+	</appender>
+	<!-- service类日志异步代理 -->
+	<appender name="ServiceLogAsync" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="ServiceLog"/>
+    </appender>
+    
+    <!-- interface日志 -->
+	<appender name="InterfaceAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="INFO"/>
+		<param name="File" value="src/main/webapp/log/interface.log"/>
+		<param name="Encoding" value="UTF-8"/>
+		<param name="BufferedIO" value="true" />
+        <param name="BufferSize" value="8192" />
+		<layout class="org.apache.log4j.PatternLayout">
+	   		<param name="ConversionPattern" value="%5p %d{yyyy-MM-dd HH:mm:ss} %c %m %n"/>
+	   	</layout>
+	</appender>
+	<!-- interface类日志异步代理 -->
+	<appender name="InterfaceLogAsync" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="InterfaceAppender"/>
+    </appender>
+
+	<!-- request访问日志 -->
+	<appender name="RequestLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="INFO"/>
+		<param name="File" value="src/main/webapp/log/request.log"/>
+		<param name="Encoding" value="UTF-8"/>
+		<param name="BufferedIO" value="true" />
+        <param name="BufferSize" value="8192" />
+		<layout class="org.apache.log4j.PatternLayout">
+	   		<param name="ConversionPattern" value="%5p %d{yyyy-MM-dd HH:mm:ss} %c %m %n"/>
+	   	</layout>
+	   	<!-- param name="DatePattern" value="'.'yyyy-MM-dd-HH-mm" /-->     
+		</appender>
+	<!-- request类日志异步代理 -->
+	<appender name="RequestLogAsync" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="RequestLog"/>
+    </appender>
+    
+    <!-- amdin ms访问日志 -->
+	<appender name="adminLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="INFO"/>
+		<param name="File" value="src/main/webapp/log/request.log"/>
+		<param name="Encoding" value="UTF-8"/>
+		<param name="BufferedIO" value="true" />
+        <param name="BufferSize" value="8192" />
+		<layout class="org.apache.log4j.PatternLayout">
+	   		<param name="ConversionPattern" value="%5p %d{yyyy-MM-dd HH:mm:ss} %c %m %n"/>
+	   	</layout>
+		</appender>
+	<!-- admin ms类日志异步代理 -->
+	<appender name="adminLogLogAsync" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="adminLog"/>
+    </appender>
+    
+    <!-- 财付通日志 -->
+    <appender name="PFTenpayCallLog" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="Threshold" value="INFO"/>
+        <param name="File" value="src/main/webapp/log/payplatform/pf_tenpaycall.log"/>
+        <param name="Encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%5p %d{yyyy-MM-dd HH:mm:ss} %c %m %n"/>
+        </layout>
+    </appender> 
+    <logger name="pftenpaycall" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="PFTenpayCallLog"/>
+        <appender-ref ref="ErrorLog" />
+    </logger>
+    <!-- 财付通日志END -->
+    
+    <!-- push日志 -->
+	<appender name="PushLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="INFO"/>
+		<param name="File" value="src/main/webapp/log/push.log"/>
+		<param name="Encoding" value="UTF-8"/>
+		<param name="BufferedIO" value="true" />
+        <param name="BufferSize" value="8192" />
+		<layout class="org.apache.log4j.PatternLayout">
+	   		<param name="ConversionPattern" value="%5p %d{yyyy-MM-dd HH:mm:ss} %c %m %n"/>
+	   	</layout>
+	</appender>
+	<!-- push类日志异步代理 -->
+	<appender name="PushLogAsync" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="PushLog"/>
+    </appender>
+
+    <!-- APP错误日志 -->
+    <appender name="AppErrLog" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="Threshold" value="INFO"/>
+        <param name="File" value="src/main/webapp/log/apperr.log"/>
+        <param name="Encoding" value="UTF-8"/>
+        <param name="BufferedIO" value="true" />
+        <param name="BufferSize" value="8192" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%5p %d{yyyy-MM-dd HH:mm:ss} %c %m %n"/>
+        </layout>
+    </appender>
+    <!-- APP错误日志异步代理 -->
+    <appender name="AppErrLogAsync" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="AppErrLog"/>
+    </appender>
+
+    <!-- 统计类日志配置 start -->
+    <!-- 操作统计日志 -->
+	<appender name="StatisticsLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="INFO"/>
+		<param name="File" value="src/main/webapp/log/statistics.log"/>
+		<param name="Encoding" value="UTF-8"/>
+		<param name="BufferedIO" value="true" />
+        <param name="BufferSize" value="8192" />
+		<layout class="org.apache.log4j.PatternLayout">
+	   		<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %p %m %n"/>
+	   	</layout>
+	</appender>
+	<!-- 操作统计日志异步代理 -->
+	<appender name="StatisticsLogAsync" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="StatisticsLog"/>
+    </appender>
+	<!-- crash日志 -->
+	<appender name="CrashLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="INFO"/>
+		<param name="File" value="src/main/webapp/log/appcrash.log"/>
+		<param name="Encoding" value="UTF-8"/>
+		<param name="BufferedIO" value="true" />
+        <param name="BufferSize" value="8192" />
+		<layout class="org.apache.log4j.PatternLayout">
+	   		<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %p %m %n"/>
+	   	</layout>
+	</appender>
+	<!-- crash日志异步代理 -->
+	<appender name="CrashLogAsync" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="CrashLog"/>
+    </appender>
+    
+    <!-- 新版统计日志 -->
+	<appender name="NewStatisticsLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="INFO"/>
+		<param name="File" value="src/main/webapp/log/new_statistics.log"/>
+		<param name="Encoding" value="UTF-8"/>
+		<layout class="org.apache.log4j.PatternLayout">
+	   		<param name="ConversionPattern" value="%5p %d{yyyy-MM-dd HH:mm:ss} %c %m %n"/>
+	   	</layout>
+	</appender>
+	
+	<logger name="newstatistics" additivity="true">
+	  	<level value="INFO"/>
+	  	<appender-ref ref="NewStatisticsLog"/>
+	</logger>
+    
+    <!-- client_info日志记录 -->
+	<appender name="ClientLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="INFO"/>
+		<param name="File" value="src/main/webapp/log/deviceinfo.log"/>
+		<param name="Encoding" value="UTF-8"/>
+		<param name="BufferedIO" value="true" />
+        <param name="BufferSize" value="8192" />	
+		<layout class="org.apache.log4j.PatternLayout">
+	   		<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %p %m %n"/>
+	   	</layout>
+	</appender>
+	<!-- client_info日志异步代理 -->
+	<appender name="ClientAsync" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="ClientLog"/>
+    </appender>
+    <!-- PayCallback日志记录 -->
+	<appender name="PayCallBackLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="INFO"/>
+		<param name="File" value="src/main/webapp/log/paycallback.log"/>
+		<param name="Encoding" value="UTF-8"/>
+		<param name="BufferedIO" value="true" />
+        <param name="BufferSize" value="8192" />	
+		<layout class="org.apache.log4j.PatternLayout">
+	   		<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %p %m %n"/>
+	   	</layout>
+	</appender>
+	<!-- PayCallback日志异步代理 -->
+	<appender name="payCallBackAsync" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="PayCallBackLog"/>
+    </appender>
+    <!-- 统计类日志配置 end -->
+        
+	<logger name="db" additivity="true">
+	  	<level value="INFO"/>
+	  	<appender-ref ref="DBLogAsync"/>
+	  	<appender-ref ref="ErrorLogAsync" />
+	</logger>
+	 
+	<logger name="service" additivity="false">
+	    <level value="INFO"/>
+	    <appender-ref ref="ServiceLogAsync"/>
+	    <appender-ref ref="ErrorLogAsync" />
+	</logger>
+	
+	<logger name="interfaceLog" additivity="false">
+	    <level value="INFO"/>
+	    <appender-ref ref="InterfaceLogAsync"/>
+	    <appender-ref ref="ErrorLogAsync" />
+	</logger>
+	 
+	<logger name="apirequest" additivity="false">
+	    <level value="INFO"/>
+	    <!-- <appender-ref ref="RequestLogAsync"/> -->
+	    <appender-ref ref="ErrorLogAsync" />
+	</logger>
+	
+	<logger name="admin" additivity="false">
+	    <level value="INFO"/>
+	    <appender-ref ref="adminLogLogAsync"/>
+	    <appender-ref ref="ErrorLogAsync" />
+	</logger>
+	
+	<logger name="push" additivity="false">
+	  	<level value="INFO"/>
+	  	<appender-ref ref="PushLogAsync"/>
+	  	<appender-ref ref="ErrorLogAsync" />
+	</logger>
+	
+	<logger name="apperr" additivity="false">
+	  	<level value="INFO"/>
+	  	<appender-ref ref="AppErrLogAsync"/>
+	</logger>
+	
+	<!-- 统计类日志节点 -->
+	<logger name="statistics" additivity="false">
+	  	<level value="INFO"/>
+	  	<appender-ref ref="StatisticsLogAsync"/>
+	</logger>
+	<logger name="crash" additivity="false">
+	  	<level value="INFO"/>
+	  	<appender-ref ref="CrashLogAsync"/>
+	</logger>	
+	<logger name="client" additivity="false">
+	  	<level value="INFO"/>
+	  	<appender-ref ref="ClientAsync"/>
+	</logger>
+	<logger name="paycallback" additivity="false">
+	  	<level value="INFO"/>
+	  	<appender-ref ref="payCallBackAsync"/>
+	</logger>
+	
+	<!-- settle interface日志 -->
+	<appender name="InterfaceSettleLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="INFO"/>
+		<param name="File" value="src/main/webapp/log/mis/settle_interface.log"/>
+		<param name="Encoding" value="UTF-8"/>
+		<layout class="org.apache.log4j.PatternLayout">
+	   		<param name="ConversionPattern" value="%5p %d{yyyy-MM-dd HH:mm:ss} %c %m %n"/>
+	   	</layout>
+	</appender>
+	
+	<logger name="interfacesettleLog" additivity="false">
+	    <level value="INFO"/>
+	    <appender-ref ref="InterfaceSettleLog"/>
+	    <appender-ref ref="ErrorLog" />
+	</logger>
+	<!-- settle interface end -->
+	
+	<root>
+	    <priority value="ERROR" />
+	    <appender-ref ref="STDOUT" />
+	 	<appender-ref ref="ErrorLogAsync" />
+	</root>
+	 
+ </log4j:configuration>

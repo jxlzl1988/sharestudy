@@ -1,0 +1,74 @@
+ <p>LESS 做为 CSS 的一种形式的扩展，它并没有阉割 CSS 的功能，而是在现有的 CSS 语法上，添加了很多额外的功能，所以学习 LESS 是一件轻而易举的事情，果断学习之！</p>
+
+<h2 id='-parametric-mixins'>带参数混合</h2>
+
+<p>在 LESS 中，你还可以像函数一样定义一个带参数的属性集合:</p>
+<img src="aa.jpg"/>
+
+<pre><code>.border-radius (@radius) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+</code></pre>
+
+<h3><code>@arguments</code> 变量</h3>
+
+<p><code>@arguments</code>包含了所有传递进来的参数. 如果你不想单独处理每一个参数的话就可以像这样写:</p>
+
+<pre><code>第一个行注释
+asdfasdfasd
+// asdfsdf 
+
+</code></pre>
+
+<h2>模式匹配和导引表达式</h2>
+
+<p>具体实现如下：</p>
+
+<ul>
+<li>第一个混合定义并未被匹配，因为它只接受<code>dark</code>做为首参</li>
+<li>第二个混合定义被成功匹配，因为它只接受<code>light</code></li>
+<li>第三个混合定义被成功匹配，因为它接受任意值</li>
+</ul>
+
+
+<p>只有被匹配的混合才会被使用。变量可以匹配任意的传入值，而变量以外的固定值就仅仅匹配与其相等的传入值。</p>
+
+<p>Now if we call <code>.mixin</code> with a single argument, we will get the output of the first definition,
+but if we call it with <em>two</em> arguments, we will get the second definition, namely <code>@a</code> faded to <code>@b</code>.</p>
+
+
+<p>下面就是常见的检测函式：</p>
+
+<ul>
+<li><code>iscolor</code></li>
+<li><code>isnumber</code></li>
+<li><code>isstring</code></li>
+<li><code>iskeyword</code></li>
+<li><code>isurl</code></li>
+</ul>
+
+<p>LESS 提供了一系列的颜色运算函数. 颜色会先被转化成 <em>HSL</em> 色彩空间, 然后在通道级别操作:</p>
+
+<pre><code>
+lighten(@color, 10%);     // return a color which is 10% *lighter* than @color
+darken(@color, 10%);      // return a color which is 10% *darker* than @color
+
+</code></pre>
+<p>LESS提供了一组方便的数学函数，你可以使用它们处理一些数字类型的值:</p>
+<pre><code>round(<span class="number">1.67</span>); <span class="comment">// returns `2`</span>
+ceil(<span class="number">2.4</span>);   <span class="comment">// returns `3`</span>
+floor(<span class="number">2.6</span>);  <span class="comment">// returns `2`</span>
+</code></pre>
+<table class="table">
+	<thead>
+		<tr><th>111</th><th>222</th><th>333</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>aa</td><td>bb</td><td>cc</td></tr>
+		<tr><td>aa</td><td>bb</td><td>cc</td></tr>
+		<tr><td>aa</td><td>bb</td><td>cc</td></tr>
+		<tr><td>aa</td><td>bb</td><td>cc</td></tr>
+	</tbody>
+</table>

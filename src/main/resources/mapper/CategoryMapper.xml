@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.sharestudy.mapper.CategoryMapper" >
+
+  <insert id="insert" parameterType="category" >
+    <selectKey keyProperty="id" resultType="java.lang.Integer" order="AFTER">SELECT LAST_INSERT_ID() as id</selectKey>
+    insert into category (
+      title, sort,articlecount, createtime, 
+      updatetime)
+    values (
+      #{title}, 
+      #{sort}, 
+      #{articlecount}, 
+      #{createtime}, 
+      #{updatetime})
+  </insert>
+
+  <update id="update" parameterType="category" >
+    update category
+    <set>
+      <if test="title !=null">
+        title = #{title},
+      </if>
+      <if test="sort !=null">
+        sort = #{sort},
+      </if>
+      <if test="articlecount !=null">
+        articlecount = #{articlecount},
+      </if>
+      <if test="createtime !=null">
+        createtime = #{createtime},
+      </if>
+      <if test="updatetime !=null">
+        updatetime = #{updatetime}
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+
+  <select id="selectById" resultType="category" parameterType="int">
+    select * from category where id=#{0}
+  </select>
+
+  <select id="selectAll" resultType="category">
+    select * from category order by sort asc 
+  </select>
+
+</mapper>

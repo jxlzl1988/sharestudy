@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.sharestudy.mapper.ArticleMapper" >
+
+  <!-- 插入 -->
+  <insert id="insert" parameterType="article" >
+    <selectKey keyProperty="id" resultType="java.lang.Integer" order="AFTER">SELECT LAST_INSERT_ID() as id</selectKey>
+    insert into article (
+      categoryid, title, content, 
+      sort, readnum, digest, keywords,
+      bdtext, bddesc, bdurl, 
+      bdpic,eshow, estate, createtime, 
+      updatetime)
+    values (
+      #{categoryid}, 
+      #{title}, 
+      #{content}, 
+      #{sort}, 
+      #{readnum}, 
+      #{digest}, 
+      #{keywords}, 
+      #{bdtext}, 
+      #{bddesc}, 
+      #{bdurl}, 
+      #{bdpic}, 
+      #{eshow}, 
+      #{estate}, 
+      #{createtime}, 
+      #{updatetime})
+  </insert>
+
+  <!-- 选择更新（timestamp字段除外） -->
+  <update id="update" parameterType="article" >
+    update article
+    <set>
+      <if test="categoryid !=null">
+        categoryid = #{categoryid},
+      </if>
+      <if test="title !=null">
+        title = #{title},
+      </if>
+      <if test="content !=null">
+        content = #{content},
+      </if>
+      <if test="sort !=null">
+        sort = #{sort},
+      </if>
+      <if test="readnum !=null">
+        readnum = #{readnum},
+      </if>
+      <if test="digest !=null">
+        digest = #{digest},
+      </if>
+      <if test="keywords !=null">
+        keywords = #{keywords},
+      </if>
+      <if test="bdtext !=null">
+        bdtext = #{bdtext},
+      </if>
+      <if test="bddesc !=null">
+        bddesc = #{bddesc},
+      </if>
+      <if test="bdurl !=null">
+        bdurl = #{bdurl},
+      </if>
+      <if test="bdpic !=null">
+        bdpic = #{bdpic},
+      </if>
+      <if test="eshow !=null">
+        eshow = #{eshow},
+      </if>
+      <if test="estate !=null">
+        estate = #{estate},
+      </if>
+      <if test="createtime !=null">
+        createtime = #{createtime},
+      </if>
+      <if test="updatetime !=null">
+        updatetime = #{updatetime}
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+
+  <!-- 查询（ID） -->
+  <select id="selectById" resultType="article" parameterType="int" >
+    select *  from article where id = #{id}
+  </select>
+
+  <!-- 查询（对象） -->
+  <select id="selectByCategoryId" resultType="article" parameterType="int">
+    select *   from article where categoryid=#{0} order by sort asc ;
+  </select>
+
+</mapper>

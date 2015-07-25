@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.sharestudy.mapper.ImagesMapper" >
+
+  <!-- 插入 -->
+  <insert id="insert" parameterType="images" >
+    insert into images (
+      id, ctype, targetid, 
+      url, estate)
+    values (
+      #{id}, 
+      #{ctype}, 
+      #{targetid}, 
+      #{url}, 
+      #{estate})
+  </insert>
+
+  <!-- 选择更新（timestamp字段除外） -->
+  <update id="update" parameterType="images" >
+    update images
+    <set>
+      <if test="ctype !=null">
+        ctype = #{ctype},
+      </if>
+      <if test="targetid !=null">
+        targetid = #{targetid},
+      </if>
+      <if test="url !=null">
+        url = #{url},
+      </if>
+      <if test="estate !=null">
+        estate = #{estate}
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+
+  <!-- 查询（ID） -->
+  <select id="selectById" resultType="images" parameterType="long" >
+    select * from images where id = #{id}
+  </select>
+
+  <!-- 查询（对象） -->
+  <select id="selectByTargetId" resultType="images" parameterType="int">
+    select * from images where targetid=#{0}
+  </select>
+
+</mapper>

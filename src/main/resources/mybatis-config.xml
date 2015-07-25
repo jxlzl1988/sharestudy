@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE configuration PUBLIC "-/mybatis.org//DTD Config 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-config.dtd">   
+<configuration>	
+	<settings> 
+        <setting name="cacheEnabled" value="false"/>
+        <setting name="useGeneratedKeys" value="true"/> 
+    </settings>
+    
+	<typeAliases>
+		<typeAlias alias="article" type="cn.sharestudy.mapper.po.Article"/>
+		<typeAlias alias="properties" type="cn.sharestudy.mapper.po.Properties"/>
+		<typeAlias alias="category" type="cn.sharestudy.mapper.po.Category"/>
+		<typeAlias alias="images" type="cn.sharestudy.mapper.po.Images"/>
+		<typeAlias alias="user" type="cn.sharestudy.mapper.po.User"/>
+	</typeAliases>
+</configuration>
