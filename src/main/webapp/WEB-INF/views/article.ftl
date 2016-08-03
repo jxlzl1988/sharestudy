@@ -1,4 +1,4 @@
-<#assign ctx=request.contextPath>
+<#import "/common/util.ftl" as sharestudy>
 <!DOCTYPE html>
   <head>
     <meta charset="gbk">
@@ -51,7 +51,7 @@
 				  <ul class="lift_tree">
 				  	<#list acs as a>
 				  		<#if a.eshow==1>
-				  			<li><a <#if a.id==ac.id>class="lift_tree_selected"</#if> href="${ctx}/article-${a.id}.html">${a.title}</a></li>
+				  			<li><a <#if a.id==ac.id>class="lift_tree_selected"</#if> href="${sharestudy.domain}/article-${a.id}.html">${a.title}</a></li>
 				  		</#if>
 				  	</#list>
 				  </ul>
@@ -78,7 +78,7 @@ ${ac.content}
 		</div>
 		<#include "common/footer.ftl"/>
     </section>
-    <script src="${ctx}/static/js/hiless.js"></script>
+    <script src="${sharestudy.js}/hiless.js"></script>
     <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
   </body>
 </html>

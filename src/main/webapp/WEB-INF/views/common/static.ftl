@@ -1,4 +1,4 @@
-<link rel="stylesheet/less" type="text/css" href="${ctx}/static/css/main.less">
+<link rel="stylesheet/less" type="text/css" href="${sharestudy.css}/main.less">
 <script src="http://cdn.bootcss.com/less.js/1.3.3/less.min.js" type="text/javascript"></script>
 <link rel="shortcut icon" href="favicon.ico">
 <script type="text/javascript">

@@ -22,27 +22,27 @@
     </nav>
     <div class="dropdown" id="java_list">
       <ul>
-        <li><a href="${ctx}/category-15.html">JAVA基础</a></li>
-        <li><a href="${ctx}/category-14.html">JAVA日志</a></li>
+        <li><a href="${sharestudy.domain}/category-15.html">JAVA基础</a></li>
+        <li><a href="${sharestudy.domain}/category-14.html">JAVA日志</a></li>
       </ul>
     </div>
     <div class="dropdown" id="linux_list">
       <ul>
-        <li><a href="${ctx}/category-12.html">LINUX文件命令</a></li>
-        <li><a href="${ctx}/category-13.html">LINUX管理命令</a></li>
+        <li><a href="${sharestudy.domain}/category-12.html">LINUX文件命令</a></li>
+        <li><a href="${sharestudy.domain}/category-13.html">LINUX管理命令</a></li>
       </ul>
     </div>
     <div class="dropdown" id="database_list">
       <ul>
-        <li><a href="${ctx}/category-10.html">SQL基础语法</a></li>
-        <li><a href="${ctx}/category-11.html">SQL高级语法</a></li>
+        <li><a href="${sharestudy.domain}/category-10.html">SQL基础语法</a></li>
+        <li><a href="${sharestudy.domain}/category-11.html">SQL高级语法</a></li>
       </ul>
     </div>
     <div class="dropdown" id="pattern_list">
       <ul>
-        <li><a href="${ctx}/category-8.html">创建型模式</a></li>
-        <li><a href="${ctx}/category-9.html">行为型模式</a></li>
-        <li><a href="${ctx}/category-7.html">结构型模式</a></li>
+        <li><a href="${sharestudy.domain}/category-8.html">创建型模式</a></li>
+        <li><a href="${sharestudy.domain}/category-9.html">行为型模式</a></li>
+        <li><a href="${sharestudy.domain}/category-7.html">结构型模式</a></li>
       </ul>
     </div>
   </div>
